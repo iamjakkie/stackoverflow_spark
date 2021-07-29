@@ -1,16 +1,17 @@
 version: "3.1"
 services:
   spark:
-    image: jupyter/pyspark-notebook
-    command: GRANT_SUDO=yes
+    image: jakkie555/spark
     ports:
       - 8888:8888
       - 4040:4040
     volumes:
-      - ./work:/home/jovyan/work
+      - ./work:/home/jakkie/work
+    tty: 
+        true
 
   mysql:
-    image: mysql
+    image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
     expose:
       - "3306"
